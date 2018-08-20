@@ -26,6 +26,7 @@
   "author": "Gnosis (https://gnosis.pm)",
   "license": "GPL-3.0",
   "dependencies": {
+    "@gnosis.pm/util-contracts": "git://git@github.com:levelkdev/util-contracts#c8c4c50a8474fd99b9b576bcc0bf42a0505f3752",
     "openzeppelin-solidity": "github:gnosis/openzeppelin-solidity#fix-signed-safemath"
   },
   "devDependencies": {

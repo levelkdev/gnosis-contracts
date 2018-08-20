@@ -1,10 +1,10 @@
 pragma solidity ^0.4.24;
+import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "../Oracles/Oracle.sol";
 import "../Events/EventFactory.sol";
 import "../Markets/StandardMarketWithPriceLoggerFactory.sol";
-import "../Utils/Proxy.sol";
 
 
 contract FutarchyOracleData {

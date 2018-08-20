@@ -1,7 +1,7 @@
 pragma solidity ^0.4.24;
+import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "../Events/Event.sol";
-import "../Utils/Proxy.sol";
 
 
 contract ScalarEventData {
