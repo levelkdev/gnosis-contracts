@@ -1,6 +1,7 @@
 pragma solidity ^0.4.24;
-import "openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol";
 import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "../Tokens/ERC20Gnosis.sol";
 
 
 contract OutcomeTokenProxy is Proxy {
@@ -9,8 +10,6 @@ contract OutcomeTokenProxy is Proxy {
      */
 
     // HACK: Lining up storage with StandardToken and OutcomeToken
-    mapping(address => uint256) balances;
-    uint256 totalSupply_;
     mapping (address => mapping (address => uint256)) internal allowed;
 
     address internal eventContract;
@@ -29,7 +28,7 @@ contract OutcomeTokenProxy is Proxy {
 
 /// @title Outcome token contract - Issuing and revoking outcome tokens
 /// @author Stefan George - <stefan@gnosis.pm>
-contract OutcomeToken is Proxied, StandardToken {
+contract OutcomeToken is Proxied, ERC20Gnosis {
     using SafeMath for *;
 
     /*
@@ -62,8 +61,8 @@ contract OutcomeToken is Proxied, StandardToken {
         public
         isEventContract
     {
-        balances[_for] = balances[_for].add(outcomeTokenCount);
-        totalSupply_ = totalSupply_.add(outcomeTokenCount);
+        _balances[_for] = _balances[_for].add(outcomeTokenCount);
+        _totalSupply = _totalSupply.add(outcomeTokenCount);
         emit Issuance(_for, outcomeTokenCount);
     }
 
@@ -74,8 +73,8 @@ contract OutcomeToken is Proxied, StandardToken {
         public
         isEventContract
     {
-        balances[_for] = balances[_for].sub(outcomeTokenCount);
-        totalSupply_ = totalSupply_.sub(outcomeTokenCount);
+        _balances[_for] = _balances[_for].sub(outcomeTokenCount);
+        _totalSupply = _totalSupply.sub(outcomeTokenCount);
         emit Revocation(_for, outcomeTokenCount);
     }
 }
