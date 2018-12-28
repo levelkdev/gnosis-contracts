@@ -42,7 +42,6 @@ contract OutcomeToken is Proxied, ERC20Gnosis {
      *  Storage
      */
     address public eventContract;
-    event Debug(address eventContract);
 
     /*
      *  Modifiers
@@ -50,7 +49,6 @@ contract OutcomeToken is Proxied, ERC20Gnosis {
     modifier isEventContract () {
         // Only event contract is allowed to proceed
         require(msg.sender == eventContract);
-        emit Debug(eventContract);
         _;
     }
 
@@ -66,8 +64,6 @@ contract OutcomeToken is Proxied, ERC20Gnosis {
     {
         balances[_for] = balances[_for].add(outcomeTokenCount);
         totalSupply_ = totalSupply_.add(outcomeTokenCount);
-
-        emit Debug(eventContract);
 
         emit Issuance(_for, outcomeTokenCount);
     }
