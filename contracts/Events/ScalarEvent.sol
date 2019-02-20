@@ -60,6 +60,11 @@ contract ScalarEventProxy is Proxy, EventData, ScalarEventData {
 contract ScalarEvent is Proxied, Event, ScalarEventData {
     using SafeMath for *;
 
+    /*
+     *  Public functions
+     */
+    /// @dev Exchanges sender's winning outcome tokens for collateral tokens
+    /// @return Sender's winnings
     function redeemWinnings()
         public
         returns (uint winnings)
@@ -73,7 +78,7 @@ contract ScalarEvent is Proxied, Event, ScalarEventData {
       outcomeTokens[SHORT].revoke(msg.sender, shortOutcomeTokenCount);
       outcomeTokens[LONG].revoke(msg.sender, longOutcomeTokenCount);
 
-      winnings = calculateWinnings(msg.sender, shortOutcomeTokenCount,longOutcomeTokenCount);
+      winnings = calculateWinnings(shortOutcomeTokenCount, longOutcomeTokenCount);
 
       // Revoke all outcome tokens
       // Payout winnings to sender
@@ -81,12 +86,7 @@ contract ScalarEvent is Proxied, Event, ScalarEventData {
       emit WinningsRedemption(msg.sender, winnings);
     }
 
-    /*
-     *  Public functions
-     */
-    /// @dev Exchanges sender's winning outcome tokens for collateral tokens
-    /// @return Sender's winnings
-    function calculateWinnings(address recipient, uint shortOutcomeTokenCount, uint longOutcomeTokenCount)
+    function calculateWinnings(uint shortOutcomeTokenCount, uint longOutcomeTokenCount)
         public
         returns (uint winnings)
     {
