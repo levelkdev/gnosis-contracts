@@ -1,6 +1,5 @@
 pragma solidity ^0.4.24;
 import "../Events/Event.sol";
-import "../MarketMakers/MarketMaker.sol";
 import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
 
 
@@ -22,7 +21,7 @@ contract MarketData {
     address public creator;
     uint public createdAtBlock;
     Event public eventContract;
-    MarketMaker public marketMaker;
+    address public marketMaker;
     uint24 public fee;
     uint public funding;
     int[] public netOutcomeTokensSold;

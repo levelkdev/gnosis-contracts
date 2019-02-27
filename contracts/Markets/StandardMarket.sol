@@ -24,7 +24,7 @@ contract StandardMarketProxy is Proxy, MarketData, StandardMarketData {
         eventContract = _eventContract;
         netOutcomeTokensSold = new int[](eventContract.getOutcomeCount());
         fee = _fee;
-        marketMaker = _marketMaker;
+        marketMaker = address(_marketMaker);
         stage = Stages.MarketCreated;
     }
 }
@@ -188,7 +188,7 @@ contract StandardMarket is Proxied, Market, StandardMarketData {
         returns (int netCost, int outcomeTokenNetCost, uint fees)
     {
         // Calculate net cost for executing trade
-        outcomeTokenNetCost = marketMaker.calcNetCost(this, outcomeTokenAmounts);
+        outcomeTokenNetCost = MarketMaker(marketMaker).calcNetCost(this, outcomeTokenAmounts);
         if(outcomeTokenNetCost < 0)
             fees = calcMarketFee(uint(-outcomeTokenNetCost));
         else
