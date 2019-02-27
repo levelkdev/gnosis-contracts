@@ -147,7 +147,7 @@ contract StandardMarketWithPriceLogger is StandardMarket, StandardMarketWithPric
     {
         // Refresh lastTradePrice after every transactions as we don't know if
         // this will be the last transaction before logging period starts
-        lastTradePrice = marketMaker.calcMarginalPrice(this, LONG);
+        lastTradePrice = MarketMaker(marketMaker).calcMarginalPrice(this, LONG);
         lastTradeDate = now;
     }
 }
