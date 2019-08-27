@@ -1,5 +1,5 @@
 pragma solidity ^0.4.24;
-import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
+import "../GnosisUtilContracts/Proxy.sol";
 
 /// @title Abstract oracle contract - Functions to be implemented by oracles
 contract Oracle {

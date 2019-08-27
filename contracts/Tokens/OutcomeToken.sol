@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 import "./ERC20Gnosis.sol";
-import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
+import "../GnosisUtilContracts/Proxy.sol";
 
 
 contract OutcomeTokenProxy is Proxy {
@@ -30,7 +30,7 @@ contract OutcomeTokenProxy is Proxy {
 /// @title Outcome token contract - Issuing and revoking outcome tokens
 /// @author Stefan George - <stefan@gnosis.pm>
 contract OutcomeToken is Proxied, ERC20Gnosis {
-    using SafeMath for *;
+    using GnosisSafeMath for *;
 
     /*
      *  Events
