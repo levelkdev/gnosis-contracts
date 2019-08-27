@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 import "../Events/Event.sol";
-import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
+import "../GnosisUtilContracts/Proxy.sol";
 
 
 contract ScalarEventData {
@@ -58,7 +58,7 @@ contract ScalarEventProxy is Proxy, EventData, ScalarEventData {
 /// @title Scalar event contract - Scalar events resolve to a number within a range
 /// @author Stefan George - <stefan@gnosis.pm>
 contract ScalarEvent is Proxied, Event, ScalarEventData {
-    using SafeMath for *;
+    using GnosisSafeMath for *;
 
     /*
      *  Public functions

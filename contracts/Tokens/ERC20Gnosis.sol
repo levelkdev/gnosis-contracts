@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "../GnosisSafeMath.sol";
 
 
 /**
@@ -11,7 +11,7 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
  * Originally based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
  */
 contract ERC20Gnosis  {
-  using SafeMath for uint256;
+  using GnosisSafeMath for uint256;
 
   event Transfer(
       address indexed from,

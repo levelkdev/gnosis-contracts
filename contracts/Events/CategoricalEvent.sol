@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 import "../Events/Event.sol";
-import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
+import "../GnosisUtilContracts/Proxy.sol";
 
 
 contract CategoricalEventProxy is Proxy, EventData {

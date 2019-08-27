@@ -32,7 +32,7 @@ contract StandardMarketProxy is Proxy, MarketData, StandardMarketData {
 /// @title Standard market contract - Backed implementation of standard markets
 /// @author Stefan George - <stefan@gnosis.pm>
 contract StandardMarket is Proxied, Market, StandardMarketData {
-    using SafeMath for *;
+    using GnosisSafeMath for *;
 
     /*
      *  Modifiers

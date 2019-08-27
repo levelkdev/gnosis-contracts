@@ -1,8 +1,8 @@
 pragma solidity ^0.4.24;
 import "../Oracles/Oracle.sol";
 import "../Tokens/ERC20Gnosis.sol";
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "@gnosis.pm/util-contracts/contracts/Proxy.sol";
+import "../GnosisSafeMath.sol";
+import "../GnosisUtilContracts/Proxy.sol";
 
 
 contract UltimateOracleData {
@@ -75,7 +75,7 @@ contract UltimateOracleProxy is Proxy, UltimateOracleData {
 /// @title Ultimate oracle contract - Allows to swap oracle result for ultimate oracle result
 /// @author Stefan George - <stefan@gnosis.pm>
 contract UltimateOracle is Proxied, Oracle, UltimateOracleData {
-    using SafeMath for *;
+    using GnosisSafeMath for *;
 
     /*
      *  Public functions
