@@ -1,5 +1,5 @@
 {
-  "name": "@gnosis.pm/pm-contracts",
+  "name": "@levelk/pm-contracts",
   "version": "1.2.0",
   "description": "Collection of smart contracts for the Gnosis prediction market platform",
   "scripts": {
@@ -50,5 +50,11 @@
   "bugs": {
     "url": "https://github.com/gnosis/pm-contracts/issues"
   },
-  "homepage": "https://github.com/gnosis/pm-contracts#readme"
+  "homepage": "https://github.com/gnosis/pm-contracts#readme",
+  "main": "truffle.js",
+  "files": [
+    "build",
+    "contracts",
+    "docs"
+  ]
 }
